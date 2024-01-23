@@ -1,5 +1,7 @@
 ## SO_LONG
 
+![Uploading Untitled3-ezgif.com-video-to-gif-converter.gif…]()
+
 ## WHAT IS THE GOAL OF THE PROJECT?
 
 The goal of the project is to create your own game by using an MLX library
