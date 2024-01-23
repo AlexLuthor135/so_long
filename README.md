@@ -1,6 +1,6 @@
 ## SO_LONG
 
-![Uploading Untitled3-ezgif.com-video-to-gif-converter.gif…]()
+![Uploading so_long.gif…]()
 
 ## WHAT IS THE GOAL OF THE PROJECT?
 
