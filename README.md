@@ -20,4 +20,4 @@ videogame.
 The difficulty of the project lies in learning algorithms of path-finding,
 which are many. In my case, I ended up making somewhat of an algorithm of
 my own, which I called "Plague spread", though it may have some similarities
-with Flood fill, but the analysis of the map and the approach is different.
+with Flood fill, but the analysis of the map and the approach are different.
