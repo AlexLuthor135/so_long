@@ -1,6 +1,6 @@
 ## SO_LONG
 
-![Uploading so_long.gif…]()
+![so_long](https://github.com/AlexLuthor135/so_long/assets/134649029/5c2e00b4-3e29-4f87-93a8-1f7de46b378b)
 
 ## WHAT IS THE GOAL OF THE PROJECT?
 
