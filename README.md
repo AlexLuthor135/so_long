@@ -1,6 +1,13 @@
 ## SO_LONG
 
-![so_long](https://github.com/AlexLuthor135/so_long/assets/134649029/5c2e00b4-3e29-4f87-93a8-1f7de46b378b)
+![so_long](https://github.com/AlexLuthor135/so_long/assets/134649029/c78e3e4d-4dc0-48fb-9e02-d3e5c577a367)
+
+
+## WHAT THE GAME IS ABOUT?
+
+The game is about collecting all the collectibles (brown animals) and entering the
+exit door to complete the game. If the player interacts with the enemy NPC, he *dies*
+and can't move anymore, signifying the end of the game.
 
 ## WHAT IS THE GOAL OF THE PROJECT?
 
