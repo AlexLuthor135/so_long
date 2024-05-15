@@ -6,7 +6,7 @@
 /*   By: alappas <alappas@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 19:55:29 by alappas           #+#    #+#             */
-/*   Updated: 2023/08/27 20:01:48 by alappas          ###   ########.fr       */
+/*   Updated: 2024/05/15 19:41:59 by alappas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,27 +26,36 @@
 # define EXIT		"sprites/Exit.xpm"
 # define EXIT_C		"sprites/Exit_C.xpm"
 # define COLLECT	"sprites/Djinn.xpm"
-# define PUP		"sprites/Isaac-UP.xpm"
-# define PDOWN		"sprites/Isaac-DOWN.xpm"
-# define PLEFT		"sprites/Isaac-LEFT.xpm"
-# define PRIGHT		"sprites/Isaac-RIGHT.xpm"
-# define PCOLLECT	"sprites/Isaac_C.xpm"
-# define PDEAD		"sprites/Isaac-DEAD.xpm"
+# define PUP		"sprites/UP.xpm"
+# define PDOWN		"sprites/DOWN.xpm"
+# define PLEFT		"sprites/LEFT.xpm"
+# define PRIGHT		"sprites/RIGHT.xpm"
+# define PCOLLECT	"sprites/C.xpm"
+# define PDEAD		"sprites/DEAD.xpm"
 # define FRAME		"sprites/Frame.xpm"
-# define M1			"sprites/Menardi1.xpm"
+# define M1			"sprites/Menardi.xpm"
+# define SUCCESS	"sprites/Success.xpm"
 
-# define KEY_W		13
-# define KEY_A		0
-# define KEY_S		1
-# define KEY_D		2
-# define KEY_ESC	53
+# if defined(__APPLE__)
+#  include "mlx_mac/mlx.h"
+#  define KEY_W		13
+#  define KEY_A		0
+#  define KEY_S		1
+#  define KEY_D		2
+#  define KEY_ESC	53
+# elif defined(__linux__)
+#  include "mlx_linux/mlx.h"
+#  define KEY_W   'w'
+#  define KEY_A   'a'
+#  define KEY_S   's'
+#  define KEY_D   'd'
+#  define KEY_ESC 65307
+#  include <X11/keysym.h>
+# endif
+# include "inc/libft/libft.h"
 
-# include "mlx/mlx.h"
-# include "incl/libft/libft.h"
-# include "incl/get_next_line/get_next_line.h"
-# include "incl/ft_printf/ft_printf.h"
-
-typedef struct s_game {
+typedef struct s_game
+{
 	int		map_height;
 	int		map_length;
 	int		player_position_x;
@@ -72,6 +81,7 @@ typedef struct s_game {
 	void	*collect;
 	void	*frame;
 	void	*m1;
+	void	*success;
 	void	*mlx;
 	void	*win;
 	char	*str;

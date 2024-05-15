@@ -3,16 +3,25 @@ SRCS		=	main.c map_render.c error_handle.c\
 				check_collect.c map_check.c bonus_handle.c\
 				check_parses.c
 
-MLX_FLAGS		= 	-lmlx -framework OpenGL -framework AppKit
+UNAME_S := $(shell uname -s)
+
+# Set the MLX and MLX_FLAGS variables based on the operating system
+ifeq ($(UNAME_S),Linux)
+    MLX = mlx_linux/
+    MLX_FLAGS = -I -g3 -L /usr/X11/lib -Lincludes -L./mlx -lmlx -Imlx -lXext -lX11 -lz
+else ifeq ($(UNAME_S),Darwin)
+    MLX = mlx_mac/
+    MLX_FLAGS = -lmlx -framework OpenGL -framework AppKit
+endif
+
+# MLX_FLAGS		= 	-lmlx -framework OpenGL -framework AppKit
 CC_FLAGS		=	-Wall -Wextra -Werror -g
 CC				=	gcc
-SRCS_F			= srcs/
-OBJS_F			= objs/
+SRCS_F			= src/
+OBJS_F			= obj/
 
-LIBFT = incl/libft/
-PRINTF = incl/ft_printf/
-MLX = mlx/
-GNL = incl/get_next_line/
+LIBFT = inc/libft/
+# MLX = mlx/
 
 OBJS		=	$(SRCS:.c=.o)
 OBJS_P		=	$(addprefix $(OBJS_F), $(OBJS))
@@ -28,17 +37,13 @@ $(OBJS_F)%.o: $(SRCS_F)%.c Makefile so_long.h
 $(NAME): $(OBJS_P)
 	@$(MAKE) -C $(MLX) 
 	@$(MAKE) -C $(LIBFT) 
-	@$(MAKE) -C $(PRINTF) 
-	@$(MAKE) -C $(GNL)
-	@$(CC) $(CC_FLAGS) -O3 -L$(MLX) $(MLX_FLAGS) $(PRINTF)/libftprintf.a $(GNL)/get_next_line.a $(LIBFT)/libft.a -o $(NAME) $(OBJS_P)
+	@$(CC) $(CC_FLAGS) -O3 -o $(NAME) $(OBJS_P) -L$(MLX) $(MLX_FLAGS) $(LIBFT)/libft.a 
 	@echo "OK"
 
 clean:
 	@rm -rf $(OBJS_F)
 	@$(MAKE) clean -C $(MLX) 
 	@$(MAKE) fclean -C $(LIBFT) 
-	@$(MAKE) fclean -C $(PRINTF) 
-	@$(MAKE) fclean -C $(GNL)
 
 fclean:	clean
 	@rm -rf $(NAME)
