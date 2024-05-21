@@ -6,7 +6,7 @@
 /*   By: alappas <alappas@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/16 16:54:23 by alappas           #+#    #+#             */
-/*   Updated: 2024/05/21 18:57:59 by alappas          ###   ########.fr       */
+/*   Updated: 2024/05/21 22:36:47 by alappas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	empty_map(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (!game->map_data || !game->map_data[0]
 		|| ft_strlen(game->map_data[0]) < 3)
 	{
-		ft_printf("Wrong map\n");
+		ft_printf("Empty/Wrong map\n");
 		if (game->map_data)
 		{
 			while (game->map_data[i])
@@ -43,10 +43,7 @@ int	main(int argc, char **argv)
 	t_game	*game;
 
 	if (argc != 2)
-	{
-		ft_printf("Wrong amount of arguments\n");
-		return (0);
-	}
+		return (ft_printf("Wrong amount of arguments\n"), 0);
 	if (check_ext(argv[1]) == 1)
 		return (0);
 	game = ft_calloc(sizeof(t_game), 1);
