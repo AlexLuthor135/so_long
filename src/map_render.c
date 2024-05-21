@@ -6,7 +6,7 @@
 /*   By: alappas <alappas@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/25 19:02:58 by alappas           #+#    #+#             */
-/*   Updated: 2023/08/04 19:30:05 by alappas          ###   ########.fr       */
+/*   Updated: 2024/05/21 18:53:59 by alappas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ int	count_y(int fd)
 }
 
 char	**map_render(t_game *game, char *map)
-
-
 {
 	int		fd;
 	int		i;
@@ -44,7 +42,7 @@ char	**map_render(t_game *game, char *map)
 	if (fd < 0)
 		error_fd();
 	game->map_height = (count_y(fd));
-	world = ft_calloc((sizeof(char *)) * game->map_height, 1);
+	world = ft_calloc((sizeof(char *)) * (game->map_height + 1), 1);
 	if (!world)
 		return (NULL);
 	close(fd);
@@ -56,6 +54,7 @@ char	**map_render(t_game *game, char *map)
 		str = get_next_line(fd);
 		i++;
 	}
+	world[i] = NULL;
 	close(fd);
 	return (world);
 }
